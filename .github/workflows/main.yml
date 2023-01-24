@@ -22,10 +22,6 @@ jobs:
  
       run: javac Somma/src/Somma.java 
  
-    - name: Download Randoop 
- 
-      run: wget https://github.com/randoop/randoop/releases/download/4.3.2/randoop-all-4.3.2.jar 
- 
     - name: Generate Randoop tests 
  
       run: java -cp Somma/out/production/Somma:randoop-all-4.3.2.jar randoop.main.Main gentests --testclass=Somma --output-limit=100
