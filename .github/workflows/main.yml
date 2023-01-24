@@ -13,7 +13,7 @@ jobs:
       uses: actions/setup-java@v2 
       with: 
         java-version: 14 
-        distribution: openjdk
+        distribution: adopt
     - name: Compile Somma.java 
       run: javac Somma/src/Somma.java 
     - name: Generate Randoop tests 
