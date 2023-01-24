@@ -3,25 +3,17 @@ name: Java Test Generation
 on: [push] 
  
 jobs: 
- 
   build: 
- 
     runs-on: ubuntu-latest 
- 
     steps: 
- 
     - name: Checkout repository 
- 
       uses: actions/checkout@v2 
  
-    - name: Set up JDK 1.19
- 
-      run: sudo apt-get update && sudo apt-get install -y openjdk-19-jdk 
- 
+    - name: Use Java 
+      uses: actions/setup-java@v2 
+      with: 
+        java-version: 14 
     - name: Compile Somma.java 
- 
-      run: export JAVA_HOME="/usr/lib/jvm/java-19-openjdk-amd64" && javac Somma/src/Somma.java 
- 
+      run: javac Somma/src/Somma.java 
     - name: Generate Randoop tests 
- 
-      run: export JAVA_HOME="/usr/lib/jvm/java-19-openjdk-amd64" && java -cp Somma/out/production/Somma:randoop-all-4.3.2.jar randoop.main.Main gentests --testclass=Somma --output-limit=100
+      run: java -cp Somma/out/production/Somma:randoop-all-4.3.2.jar randoop.main.Main gentests --testclass=Somma --output-limit=100
