@@ -15,4 +15,4 @@ jobs:
     - name: Compile Somma.java
       run: javac Somma/src/Somma.java
     - name: Generate Randoop tests
-      run: java -classpath Somma/out/production/Somma randoop-all-4.3.2.jar randoop.main.Main gentests --testclass=Somma --output-limit=100
+      run: java -classpath Somma/out/production/Somma;./ randoop-all-4.3.2.jar randoop.main.Main gentests --testclass=Somma --output-limit=100
